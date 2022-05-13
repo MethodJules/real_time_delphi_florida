@@ -1,0 +1,26 @@
+version: '3'
+services:
+  rtd_d9_db:
+    image: mariadb:10.5
+    container_name: "rtd_d9_mariadb"
+    #command: --max_allowed_packet=32505856 #Set max_allowed_packet to 256M
+    environment:
+      MYSQL_DATABASE: rtd_d9
+      MYSQL_ROOT_PASSWORD: rtd_d9
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../database:/var/lib/mysql
+    restart: always
+  rtd_d9_drupal:
+    depends_on:
+      - rtd_d9_db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    build: .
+    container_name: "rtd_d9_drupal"
+    ports:
+      - "8080:80"
+    volumes:
+      - ../docroot:/app
+    restart: always
