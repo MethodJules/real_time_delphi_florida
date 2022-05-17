@@ -1,0 +1,5 @@
+name: Real Time Delphi Question
+type: module
+description: Provides a real time delphi question
+package: Custom
+core_version_requirement: ^9 || ^10

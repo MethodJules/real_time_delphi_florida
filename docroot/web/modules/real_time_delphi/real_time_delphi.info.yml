@@ -1,0 +1,5 @@
+name: Real Time Delphi
+type: module
+description: Provides a real time delphi tool
+package: Custom
+core_version_requirement: ^9 || ^10

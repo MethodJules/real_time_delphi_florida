@@ -1,0 +1,6 @@
+real_time_delphi.settings_form:
+  title: 'Real Time Delphi'
+  description: 'Configure Real Time Delphi.'
+  parent: system.admin_config_system
+  route_name: real_time_delphi.settings_form
+  weight: 10
