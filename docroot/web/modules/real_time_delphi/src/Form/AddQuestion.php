@@ -4,11 +4,25 @@ namespace Drupal\real_time_delphi\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Database\Connection;
 
 /**
  * Provides a Real Time Delphi form.
  */
 class AddQuestion extends FormBase {
+
+  protected $database;
+
+  public function __construct(Connection $database) {
+    return $this->database = $database;
+  }
+
+  public static function create(ContainerInterface $container) {
+    return new static (
+      $container->get('database')
+    );
+  }
 
    /**
    * {@inheritdoc}
@@ -63,6 +77,7 @@ class AddQuestion extends FormBase {
 
      //Submit-Button
      $form['submit'] = array(
+        '#name' => $answer_quantity_id,
         '#type' => 'submit',
         '#value' => 'Speichern',
         // '#submit' => array('delphi_question_add_question_save_question')
@@ -391,11 +406,29 @@ class AddQuestion extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $answer_quantity_id = $form_state->getTriggeringElement()['#name'];
     $question_title = $form_state->getValue('question');
     $isQuestionGroup = FALSE;
 
-    $questionType = "";
+    //question group has only one
+    if ($answer_quantity_id === 'group') {
+      $number_of_answers = 1;
+      $isQuestionGroup = TRUE;
+      $questionType = 'group';
+    } else {
+      $number_of_answers = $answer_quantity_id;
+      $questionType = 'question';
+    }
 
+    $query = $this->database->query("SELECT COUNT(*) FROM {question}");
+    $noQuestions = $query->fetchField();
+
+
+
+    $questionType = "";
+    \Drupal::messenger()->addMessage(
+      'AnswerNr:' .$answer_quantity_id . 
+      'noQuestion:' . $noQuestions);
     
     
     $form_state->setRedirect('<front>');
