@@ -127,25 +127,95 @@ function real_time_delphi_schema() {
 
     ),
     'primary key' => array('question_user_answers_id'),
-);
+  );
 
-  return $schema;
-}
+  $schema['question'] = array(
+    'description' => 'This table contains the hypothesises and groups of them',
+    'fields' => array(
+        'question_id' => array(
+            'description' => 'The question_id',
+            'type' => 'serial',
+            'not null' => TRUE,
+        ),
+        'title' => array(
+            'description' => 'The question a.k.a hypothesis',
+            'type' => 'text',
+            'size' => 'normal',
+        ),
+        'weight' => array(
+            'description' => 'The weight of the question a.k.a hypothesis',
+            'type' => 'int',
+        ),
+        'type' => array(
+            'description' => 'The type (question|group) of the question a.k.a hypothesis',
+            'type' => 'varchar',
+            'length' => 255,
+            'default' => 'question',
+        ),
+    ),
+    'primary key' => array('question_id'),
+  );
 
-/**
- * Implements hook_requirements().
- */
-function real_time_delphi_requirements($phase) {
-  $requirements = [];
+  $schema['question_possible_answers'] = array(
+    'description' => 'This table contains the possible answers for a question',
+    'fields' => array(
+        'answers_id' => array(
+            'description' => 'The id for an answer',
+            'type' => 'serial',
+            'not null' => TRUE,
+        ),
+        'description' => array(
+            'description' => 'The description about the description',
+            'type' => 'text',
+            'size' => 'normal',
+            'not null' => FALSE,
+        ),
+        'isRadioButton' => array(
+            'description' => 'Flag that tells if the question is a radio button',
+            'type' => 'int',
+        ),
+        'question_id' => array(
+            'description' => 'The id that identifies the question from the question table',
+            'type' => 'int',
+        ),
+        'weight' => array(
+            'description' => 'The weight of the question from the question table',
+            'type' => 'int',
+        ),
+        'question_type' => array(
+            'description' => 'The type of the question',
+            'type' => 'text',
+            'size' => 'normal',
+        ),
+    ),
+    'primary key' => array('answers_id'),
+  );
 
-  if ($phase == 'runtime') {
-    $value = mt_rand(0, 100);
-    $requirements['real_time_delphi_status'] = [
-      'title' => t('Real Time Delphi status'),
-      'value' => t('Real Time Delphi value: @value', ['@value' => $value]),
-      'severity' => $value > 50 ? REQUIREMENT_INFO : REQUIREMENT_WARNING,
-    ];
-  }
+  $schema['question_buttons_title'] = array(
+    'description' => 'This table contains the questions button titles at the likert scales',
+    'fields' => array(
+        'question_button_title_id' => array(
+            'description' => 'The question_button_title_id',
+            'type' => 'serial',
+            'not null' => TRUE,
+        ),
+        'question_id' => array(
+            'type' => 'int',
+        ),
+        'answer_id' => array(
+            'type' => 'int',
+        ),
+        'button_id' => array(
+            'type' => 'int',
+        ),
+        'title' => array(
+            'type' => 'text',
+            'size' => 'medium',
+        ),
+    ),
+    'primary key' => array('question_button_title_id'),
+  );
 
-  return $requirements;
+
+return $schema;
 }

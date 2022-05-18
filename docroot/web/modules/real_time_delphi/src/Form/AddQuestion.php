@@ -423,6 +423,76 @@ class AddQuestion extends FormBase {
     $query = $this->database->query("SELECT COUNT(*) FROM {question}");
     $noQuestions = $query->fetchField();
 
+    // save title of the question to the database to get an question id
+    $nid = $this->database->insert('question')
+            ->fields([
+            'title' => $question_title,
+            'weight' => $noQuestions + 1,
+            'type' => $questionType,
+            ])
+            ->execute();
+
+    // iterate over all answers
+    for ($i = 1; $i <= $number_of_answers; $i++) {
+      $description = $form_state->getValue('test' . $i);
+      // check the question type
+      $questionType = $form_state->getValue('radios' . $i);
+      $isRadioButton = 1 ;
+
+      // check if the question type is rating
+      if($questionType !== 'rating') {
+        $isRadioButton = 0;
+      }
+
+      // persist the answer option into the database
+      $answer_id = $this->database->insert('question_possible_answers')
+                    ->fields([
+                      'description' => $description,
+                      'question_type' => $questionType,
+                      'isRadioButton' => $isRadioButton,
+                      'question_id' => $nid,
+                      'weight' => $i,  
+                    ])
+                    ->execute();
+
+      //Sollte es sich bei der Antwortmöglichkeit um Radio-Buttons handeln
+      if ($questionType === 'rating') {
+
+        //Es wird ausgelesen, ob 4,5 oder 6 Radio-Buttons zur Antwort gehören
+        $number_of_radio_buttons = $form_state->getValue('button_radios' . $i);
+
+        $radio_name_1 = $form_state->getValue('textfield_first_button' . $i);
+        $radio_name_2 = $form_state->getValue('textfield_second_button' . $i);
+        $radio_name_3 = $form_state->getValue('textfield_third_button' . $i);
+        $radio_name_4 = $form_state->getValue('textfield_fourth_button' . $i);
+        $radio_name_5 = $form_state->getValue('textfield_fiveth_button' . $i);
+        $radio_name_6 = $form_state->getValue('textfield_sixth_button' . $i);
+
+        $radio_array = array();
+        array_push($radio_array, $radio_name_1);
+        array_push($radio_array, $radio_name_2);
+        array_push($radio_array, $radio_name_3);
+        array_push($radio_array, $radio_name_4);
+        array_push($radio_array, $radio_name_5);
+        array_push($radio_array, $radio_name_6);
+
+        //Es wird über alle nötigen Radio-Buttons iteriert
+        for ($j = 0; $j <= $number_of_radio_buttons - 1; $j++) {
+
+            $question_title = $radio_array[$j];
+
+            //Der Titel jedes Radio-Buttons wird abgespeichert
+            $this->database->insert('question_buttons_title')
+                ->fields([
+                    'question_id' => $nid,
+                    'answer_id' => $answer_id,
+                    'button_id' => $j,
+                    'title' => $question_title,
+                ])
+                ->execute();
+        }
+      }
+    }
 
 
     $questionType = "";
