@@ -90,17 +90,24 @@ class QuestionOverview extends FormBase {
         );
 
         // load questions
-        $question_result = $this->database->query("SELECT * FROM {question} ORDER BY weight, question_id");
-        $noQuestions = $question_result->rowCount();
+        $query = $this->database->select('question', 'q');
+        $query->fields('q');
+        $query->orderBy('weight');
+        $query->orderBy('question_id');
+        $sql = $query->__toString(); 
+        $question_result = $query->execute();
+        $noQuestions = $query->countQuery()->execute()->fetchField();
+        // $noQuestions = $question_result->fetchField();
 
         $id=1;
+        
         foreach ($question_result as $question) {
             // load answer options of the question
-            $answer_result = $this->database->query("SELECT * FROM {question_possible_answers} 
-                    WHERE question_id = :question_id", [':question_id' => $question->question_id]);
+            //$answer_result = $this->database->query("SELECT * FROM {question_possible_answers} 
+            //        WHERE question_id = :question_id", [':question_id' => $question->question_id])->execute();
             
             // count the answers
-            $quan = $answer_result->rowCount();
+            // $quan = count($answer_result);
 
             // build table row
             $rowClass = 'question-row';
@@ -113,12 +120,59 @@ class QuestionOverview extends FormBase {
                 '#prefix' => '<tr class="' . $rowClass . '">',
                 '#suffix' => '</tr>',
             ];
+
+            $options = array_combine(range(1, $noQuestions), range(1, $noQuestions));
+            $form['table']['rows'][$id]['weight' . $id] = array(
+                '#type' => 'select',
+                '#title' => $this->t(''),
+                '#options' => $options,
+                '#default_value' => $id,
+                '#id' => $question->question_id,
+                '#attributes' => array(
+                  'class' => array('weight-table-question'),
+                  'onChange' => 'this.form.submit();',
+                ),
+                '#prefix' => '<td>',
+                '#suffix' => '</td>',
+              );
+
+            $form['table']['rows'][$id]['title'] = array(
+                '#type' => 'markup',
+                '#titel' => '',
+                '#markup' => '<td>' . $question->title . '</td>',
+            );
+            // create links to edit or delete a question
+            $linkDelete = Link::fromTextAndUrl(t('Delete'), Url::fromRoute('real_time_delphi.add_question', ['answer_quantity_id' => 1]))->toString();
+            $linkEdit = Link::fromTextAndUrl(t('Edit'), Url::fromRoute('real_time_delphi.add_question', ['answer_quantity_id' => 1]))->toString();
+
+            $form['table']['rows'][$id]['links'] = array(
+                '#type' => 'markup',
+                '#markup' => '<td>'
+                  . $linkEdit
+                  . '<br/>'
+                  . $linkDelete
+                  . '</td>'
+              );
+          
+
+
+            $id++;
         }
+
+        
+        $form['submit'] = [
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),
+        ];
 
         return $form;
     }
 
     public function submitForm(array &$form, FormStateInterface $form_state) {
+        \Drupal::messenger()->addMessage('dfdfffff');
+        foreach ($form['table']['rows'] as $key => $row) {
+            // $rowData = $row['weight' . $key];
+        }
         
     }
 }
