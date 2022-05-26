@@ -39,6 +39,14 @@ real_time_delphi.add_question:
   requirements:
     _permission: 'access content'
 
+real_time_delphi.edit_question:
+  path: '/real-time-delphi/survey/edit/question/{question_id}/{quantity_id}'
+  defaults:
+    _title: 'Survey Edit Question'
+    _form: 'Drupal\real_time_delphi\Form\EditQuestion'
+  requirements:
+    _permission: 'access content'
+
 real_time_delphi.question_overview:
   path: '/real-time-delphi/survey/question-overview'
   defaults:

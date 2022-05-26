@@ -108,6 +108,12 @@ class QuestionOverview extends FormBase {
 
             // count the answers
             // $quan = count($answer_result);
+            $query = $this->database->select('question_possible_answers', 'qba');
+            $query->fields('qpa', ['answers_id', 'description', 
+                        'isRadioButton', 'question_id', 'weight', 'question_type']);
+            $query->condition('question_id', $question->question_id);
+            $quan = $query->countQuery()->execute()->fetchField();
+
 
             // build table row
             $rowClass = 'question-row';
@@ -143,7 +149,8 @@ class QuestionOverview extends FormBase {
             );
             // create links to edit or delete a question
             $linkDelete = Link::fromTextAndUrl(t('Delete'), Url::fromRoute('real_time_delphi.add_question', ['answer_quantity_id' => 1]))->toString();
-            $linkEdit = Link::fromTextAndUrl(t('Edit'), Url::fromRoute('real_time_delphi.add_question', ['answer_quantity_id' => 1]))->toString();
+            $linkEdit = Link::fromTextAndUrl(t('Edit'), Url::fromRoute('real_time_delphi.edit_question', 
+                            ['question_id' => $question->question_id, 'quantity_id' => $quan]))->toString();
 
             $form['table']['rows'][$id]['links'] = array(
                 '#type' => 'markup',

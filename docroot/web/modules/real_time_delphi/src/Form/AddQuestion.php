@@ -37,6 +37,12 @@ class AddQuestion extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $answer_quantity_id = 1) {
 
     $isQuestionGroup = FALSE;
+    // Overview Page for a question block. Will be used internaly like a question
+    if ($answer_quantity_id === 'group') {
+      $isQuestionGroup = TRUE;
+      $answer_quantity_id = 1;
+      $form['#attributes']['class'][] = 'question-group-form';
+    }
     $answer_choose_array = ['rating' => $this->t('Radio-Buttons'),
                                  'year' => $this->t("Year"),
                                  'text' => $this->t('Text'),
@@ -111,14 +117,14 @@ class AddQuestion extends FormBase {
           '#type' => 'radios',
           '#title' => $this->t('Answertype:'),
           '#default_value' => 'rating',
-          '#options' => $answer_choose_array,
+          '#options' => ['rating' => $this->t('Radio-Buttons')],
         );
 
         $form['content' . $i]['button_radios' . $i] = array(
           '#type'          => 'radios',
           '#title'         => "<b>" . $this->t("Number of radio boxes") . "</b>",
           '#default_value' => 5,
-          '#options'       => $button_array,
+          '#options'       => [5 => 5],
         );
 
       } else {
@@ -183,11 +189,11 @@ class AddQuestion extends FormBase {
       $defaultValues = array_fill(0, 6, 'Dimension ' . $var);
       if ($isQuestionGroup) {
         $defaultValues = array(
-          '... kenne ich mich überhaupt nicht aus.',
+          '...' . $this->t('I don\'t know at all.'),
           '.',
           '.',
           '.',
-          '... kenne ich mich sehr gut aus.',
+          '...' . $this->t('I know very well'),
           '.'
         );
       }
