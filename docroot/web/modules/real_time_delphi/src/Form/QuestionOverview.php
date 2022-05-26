@@ -13,7 +13,7 @@ use Drupal\Core\Render\Markup;
 class QuestionOverview extends FormBase {
 
     protected $database;
-    
+
     /**
      * {@inheritdoc}
      */
@@ -76,7 +76,7 @@ class QuestionOverview extends FormBase {
 
         $form['table'] = array(
             '#type' => 'markup',
-            '#title' => $this->t('Thesenübersicht'),
+            '#title' => $this->t('Thesis Overview'),
             '#prefix' => '<table class="select-table">',
             '#suffix' => '</table>'
           );
@@ -85,8 +85,8 @@ class QuestionOverview extends FormBase {
         $form['table']['header'] = array(
             '#type' => 'markup',
             '#markup' => "<th>Nr.</th>
-                    <th>These</th>
-                    <th>Aktion</th>",
+                    <th>" . $this->t('Thesis') . "</th>
+                    <th>" . $this->t('Action') . "</th>",
         );
 
         // load questions
@@ -94,18 +94,18 @@ class QuestionOverview extends FormBase {
         $query->fields('q');
         $query->orderBy('weight');
         $query->orderBy('question_id');
-        $sql = $query->__toString(); 
+        $sql = $query->__toString();
         $question_result = $query->execute();
         $noQuestions = $query->countQuery()->execute()->fetchField();
         // $noQuestions = $question_result->fetchField();
 
         $id=1;
-        
+
         foreach ($question_result as $question) {
             // load answer options of the question
-            //$answer_result = $this->database->query("SELECT * FROM {question_possible_answers} 
+            //$answer_result = $this->database->query("SELECT * FROM {question_possible_answers}
             //        WHERE question_id = :question_id", [':question_id' => $question->question_id])->execute();
-            
+
             // count the answers
             // $quan = count($answer_result);
 
@@ -153,13 +153,13 @@ class QuestionOverview extends FormBase {
                   . $linkDelete
                   . '</td>'
               );
-          
+
 
 
             $id++;
         }
 
-        
+
         $form['submit'] = [
             '#type' => 'submit',
             '#value' => $this->t('Submit'),
@@ -173,6 +173,6 @@ class QuestionOverview extends FormBase {
         foreach ($form['table']['rows'] as $key => $row) {
             // $rowData = $row['weight' . $key];
         }
-        
+
     }
 }

@@ -58,7 +58,7 @@ class AddQuestion extends FormBase {
         ),
         '#maxlength' => 1000, // DB field type is varchar(1023)
     ];
-    
+
     $form['quantity'] = [
         '#type' => 'textfield',
         '#title' => $this->t("Number of answer oportunities"),
@@ -68,7 +68,7 @@ class AddQuestion extends FormBase {
     ];
 
     //Button, der die Änderung der Anzahl von Antwortmöglichkeiten übernimmt
-    
+
     $form['back'] =  [
         '#type' => 'submit',
         '#value' => $this->t('Change'),
@@ -133,7 +133,7 @@ class AddQuestion extends FormBase {
         );
         $form['content' . $i]['button_radios' . $i] = array(
           '#type'          => 'radios',
-          '#title'         => "<b>Anzahl der vorhandenen Radio-Boxen</b>",
+          '#title'         => "<b>Count of the current radio buttons</b>",
           '#default_value' => $button_array[4],
           '#options'       => $button_array,
           '#states'        => array(
@@ -145,7 +145,7 @@ class AddQuestion extends FormBase {
 
         $form['content' . $i]['ranking' .$i] = array(
             '#type' => 'radios',
-            '#title' => $this->t('Anzahl der Ranking Items'),
+            '#title' => $this->t('Count of Ranking Items'),
             '#default_value' => 2,
             '#options' => array(2 => '2', 3 => '3', 5 => '5'),
             '#states' => array(
@@ -288,7 +288,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_first_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der ersten Radio-Box",
+          '#title' => "Label of the first Radio-Box",
           '#default_value' => $this->t($defaultValues[0]),
           '#required' => TRUE,
           '#states' => array(
@@ -308,7 +308,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_second_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der zweiten Radio-Box",
+          '#title' => "Label of the second Radio-Box",
           '#default_value' => $this->t($defaultValues[1]),
           '#required' => TRUE,
           '#states' => array(
@@ -328,7 +328,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_third_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der dritten Radio-Box",
+          '#title' => "Label of the third Radio-Box",
           '#default_value' => $this->t($defaultValues[2]),
           '#required' => TRUE,
           '#states' => array(
@@ -347,7 +347,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_fourth_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der vierten Radio-Box",
+          '#title' => "Label of the fourth Radio-Box",
           '#default_value' => $this->t($defaultValues[3]),
           '#required' => TRUE,
           '#states' => array(
@@ -366,7 +366,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_fiveth_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der fünften Radio-Box",
+          '#title' => "Label of the fifth Radio-Box",
           '#default_value' => $this->t($defaultValues[4]),
           '#required' => TRUE,
           '#states' => array(
@@ -384,7 +384,7 @@ class AddQuestion extends FormBase {
       $form['content' . $i]['textfield_sixth_button' . $i] = array(
           '#type' => 'textfield',
           '#require' => TRUE,
-          '#title' => "Bezeichnung der sechsten Radio-Box",
+          '#title' => "Label of the sixth Radio-Box",
           '#default_value' => $this->t($defaultValues[5]),
           '#required' => TRUE,
           '#states' => array(
@@ -396,9 +396,9 @@ class AddQuestion extends FormBase {
               ),
           ),
       );
-      
+
     }
-    
+
     return $form;
   }
 
@@ -451,7 +451,7 @@ class AddQuestion extends FormBase {
                       'question_type' => $questionType,
                       'isRadioButton' => $isRadioButton,
                       'question_id' => $nid,
-                      'weight' => $i,  
+                      'weight' => $i,
                     ])
                     ->execute();
 
@@ -497,14 +497,14 @@ class AddQuestion extends FormBase {
 
     $questionType = "";
     \Drupal::messenger()->addMessage(
-      'AnswerNr:' .$answer_quantity_id . 
+      'AnswerNr:' .$answer_quantity_id .
       'noQuestion:' . $noQuestions);
-    
-    
+
+
     $form_state->setRedirect('<front>');
   }
 
   public function delphi_question_add_question_change_quantity(array &$form, FormStateInterface $form_state) {
-      
+
   }
 }

@@ -29,12 +29,13 @@ real_time_delphi.survey_answer:
     _form: 'Drupal\real_time_delphi\Form\SurveyStartForm'
   requirements:
     _permission: 'access content'
-    
+
 real_time_delphi.add_question:
   path: '/real-time-delphi/survey/add/question/{answer_quantity_id}'
   defaults:
     _title: 'Survey Add Question'
     _form: 'Drupal\real_time_delphi\Form\AddQuestion'
+    answer_quantity_id: '1'
   requirements:
     _permission: 'access content'
 
@@ -43,5 +44,21 @@ real_time_delphi.question_overview:
   defaults:
     _title: 'Question Overview'
     _form: 'Drupal\real_time_delphi\Form\QuestionOverview'
+  requirements:
+    _permission: 'access content'
+
+real_time_delphi.token_generate:
+  path: '/real-time-delphi/survey/token-generate'
+  defaults:
+    _title: 'Token Generator'
+    _form: 'Drupal\real_time_delphi\Form\CreateSurveyToken'
+  requirements:
+    _permission: 'access content'
+
+real_time_delphi.token:
+  path: '/real-time-delphi/token'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\real_time_delphi\Controller\RealTimeDelphiController::createToken'
   requirements:
     _permission: 'access content'

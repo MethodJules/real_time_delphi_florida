@@ -1,0 +1,5 @@
+rtd.question_add:
+  route_name: real_time_delphi.add_question
+  title: 'Add Question'
+  appears_on:
+    - real_time_delphi.question_overview
