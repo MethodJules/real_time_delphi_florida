@@ -26,7 +26,7 @@ real_time_delphi.survey_answer:
   path: '/real-time-delphi/survey/question/{question_id}/{user_pass}'
   defaults:
     _title: 'Survey start'
-    _form: 'Drupal\real_time_delphi\Form\SurveyStartForm'
+    _form: 'Drupal\real_time_delphi\Form\SurveyAnswerQuestionForm'
   requirements:
     _permission: 'access content'
 
