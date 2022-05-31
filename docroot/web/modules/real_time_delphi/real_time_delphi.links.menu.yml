@@ -9,3 +9,21 @@ real_time_delphi.question_overview:
   description: 'Overview Table'
   route_name: real_time_delphi.question_overview
   weight: 100
+
+real_time_delphi.survey_token:
+  title: 'Survey Tokens'
+  description: 'Creates and shows the survey tokens'
+  route_name: real_time_delphi.token_generate
+  weight: 101
+
+real_time_delphi.start_survey:
+  title: 'Sarting Survey...'
+  description: 'Starts the survey.'
+  route_name: real_time_delphi.survey_start
+  weight: 102
+
+real_time_delphi.configure_survey:
+  title: 'Configure Survey'
+  description: 'Configure the survey.'
+  route_name: real_time_delphi.settings_form
+  weight: 103

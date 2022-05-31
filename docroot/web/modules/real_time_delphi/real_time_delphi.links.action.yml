@@ -3,3 +3,11 @@ rtd.question_add:
   title: 'Add Question'
   appears_on:
     - real_time_delphi.question_overview
+
+rtd.question_add_group:
+  route_name: real_time_delphi.add_question
+  route_parameters:
+    answer_quantity_id: 'group'
+  title: 'Add Group'
+  appears_on:
+    - real_time_delphi.question_overview

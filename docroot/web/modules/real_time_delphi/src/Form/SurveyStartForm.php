@@ -54,7 +54,7 @@ class SurveyStartForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     
-    $form_state->setRedirect('<front>');
+    $form_state->setRedirect('real_time_delphi.survey_answer', ['question_id' => 1, 'user_pass' => 'admin']);
   }
 
 }

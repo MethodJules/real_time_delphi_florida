@@ -34,10 +34,10 @@ class EditQuestion extends FormBase {
         return 'edit_question_form';
     }
 
-    public function buildForm(array $form, FormStateInterface $form_state, $question_id = 1, $quantity_id = 1) {
+    public function buildForm(array $form, FormStateInterface $form_state, $question_id = NULL, $quantity_id = NULL) {
             
             //$question_id = 2;
-            $number_of_answers = 1;
+            $number_of_answers = $quantity_id;
             $question_title = "";
             $pageType = "";
 
@@ -81,7 +81,6 @@ class EditQuestion extends FormBase {
         '#size' => 2,
         '#maxlength' => 2,
         '#default_value' => $number_of_answers,
-        '#element_validate' => array('element_validate_integer_positive'),
     );
 
     $answer_array = array();

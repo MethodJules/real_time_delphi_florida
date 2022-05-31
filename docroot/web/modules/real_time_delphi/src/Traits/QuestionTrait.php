@@ -93,7 +93,7 @@ trait QuestionTrait {
       $questions[] = $question;
     }
 
-    return $question;
+    return $questions;
   }
 
   /**
@@ -169,6 +169,58 @@ trait QuestionTrait {
 
     return $button_title_array;
   }
+
+  /**
+ * Returns all answered questions of a user.
+ *
+ * @param $userToken
+ *   The unique user token.
+ *
+ * @return array
+ *   Associative array of all answered quesstions.
+ */
+function get_answered_questions($userToken) {
+  $answeredQuestions = array();
+
+  $database = \Drupal::database();
+  $query = $database->select('question_user_answers', 'qba');
+  $query->fields('qba');
+  $query->condition('user_pw', $userToken);
+  $query->groupBy('question_id');
+  $result = $query->execute();
+  $answeredQuestions = $result->fetchAllAssoc('question_id');
+
+  return $answeredQuestions;
+}
+
+/*
+ * Diese Funktion ermittelt anhand der aktuellen Fragen-ID die nächste
+ */
+function question_evaluation_get_next_question($question_id)
+{
+    $questions = array();
+    // $result = db_query("SELECT * FROM {question} ORDER BY weight, question_id");
+    $database =  \Drupal::database();
+    $query = $database->select('question', 'q');
+    $query->fields('q');
+    $query->orderBy('weight');
+    $query->orderBy('question_id');
+    $result = $query->execute();
+
+    foreach ($result as $item) {
+        array_push($questions, $item->question_id);
+    }
+
+    $in = array_search($question_id, $questions);
+
+    if (sizeof($questions) > $in + 1) {
+
+        return $questions[$in + 1];
+    } else {
+        return -1;
+    }
+}
+
 
 
 

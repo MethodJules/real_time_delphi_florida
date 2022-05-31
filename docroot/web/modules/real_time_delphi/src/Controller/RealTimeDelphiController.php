@@ -39,18 +39,7 @@ class RealTimeDelphiController extends ControllerBase {
     return $random_string;
   }
 
-  // Generate a user token and save it to the database
-  public function createToken() {
-    $database = \Drupal::database();
-    $user_check_string = $this->survey_generate_random_string(30);
-    // TODO: Try catch block
-      $query = $database->insert('survey_users')
-                        ->fields(['user_pw' => $user_check_string])
-                        ->execute();
-    \Drupal::messenger()->addMessage('Token: "' . $user_check_string . '" was generated');
-
-    return ['#markup' => '<p>Token: "' . $user_check_string . '" was generated</p>'];
-  }
+  
 
 
 

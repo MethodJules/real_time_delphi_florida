@@ -17,16 +17,32 @@ real_time_delphi.settings_form:
 real_time_delphi.survey_start:
   path: '/real-time-delphi/survey-start'
   defaults:
-    _title: 'Survey start'
+    _title: 'Survey Start'
     _form: 'Drupal\real_time_delphi\Form\SurveyStartForm'
+  requirements:
+    _permission: 'access content'
+
+real_time_delphi.survey_finish:
+  path: '/real-time-delphi/survey-finish'
+  defaults:
+    _title: 'Survey Finish'
+    _form: 'Drupal\real_time_delphi\Form\SurveyFinishForm'
   requirements:
     _permission: 'access content'
 
 real_time_delphi.survey_answer:
   path: '/real-time-delphi/survey/question/{question_id}/{user_pass}'
   defaults:
-    _title: 'Survey start'
+    _title: 'Survey'
     _form: 'Drupal\real_time_delphi\Form\SurveyAnswerQuestionForm'
+  requirements:
+    _permission: 'access content'
+
+real_time_delphi.survey_answer_evaluate:
+  path: '/real-time-delphi/survey/question_evaluation/{question_id}/{user_pass}'
+  defaults:
+    _title: 'Survey Question Evaluation'
+    _form: 'Drupal\real_time_delphi\Form\SurveyQuestionEvaluationForm'
   requirements:
     _permission: 'access content'
 
@@ -60,13 +76,5 @@ real_time_delphi.token_generate:
   defaults:
     _title: 'Token Generator'
     _form: 'Drupal\real_time_delphi\Form\CreateSurveyToken'
-  requirements:
-    _permission: 'access content'
-
-real_time_delphi.token:
-  path: '/real-time-delphi/token'
-  defaults:
-    _title: 'Example'
-    _controller: '\Drupal\real_time_delphi\Controller\RealTimeDelphiController::createToken'
   requirements:
     _permission: 'access content'

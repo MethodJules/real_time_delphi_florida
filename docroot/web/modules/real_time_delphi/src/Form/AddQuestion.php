@@ -34,7 +34,7 @@ class AddQuestion extends FormBase {
    /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $answer_quantity_id = 1) {
+  public function buildForm(array $form, FormStateInterface $form_state, $answer_quantity_id = NULL) {
 
     $isQuestionGroup = FALSE;
     // Overview Page for a question block. Will be used internaly like a question
@@ -57,7 +57,7 @@ class AddQuestion extends FormBase {
     $form['question'] = [
         '#type' => 'textarea',
         '#required' => FALSE,
-        '#title' => $this->t("Title of the topicarea"),
+        '#title' => $isQuestionGroup ? $this->t("Title of the topicarea") : $this->t("Title of the Thesis"),
         //'#format' => 'full_html',
         '#attributes' => array(
             'id' => 'question-field',
@@ -78,12 +78,13 @@ class AddQuestion extends FormBase {
     $form['back'] =  [
         '#type' => 'submit',
         '#value' => $this->t('Change'),
-        '#submit' => ['delphi_question_add_question_change_quantity']
+        '#submit' => ['delphi_question_add_question_change_quantity'],
+        '#answer_quantity_id' => $answer_quantity_id,
     ];
 
      //Submit-Button
      $form['submit'] = array(
-        '#name' => $answer_quantity_id,
+        '#name' => $isQuestionGroup ? 'group' : $answer_quantity_id,
         '#type' => 'submit',
         '#value' => 'Speichern',
         // '#submit' => array('delphi_question_add_question_save_question')
