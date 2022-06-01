@@ -23,12 +23,13 @@ class CreateSurveyToken extends FormBase {
 
   public function buildForm(array $form,FormStateInterface $form_state) {
 
-    $data = 'Delete';
+    $base_path = Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString();
 
+    /*
     $qrcode = [
       '#type' => 'markup',
       '#markup' => '<img src="' . (new QRCode)->render($data) . '" alt="QR Code" />',
-    ];
+    ];*/
     $linkText = 'http://www.google.de';
     $link = [
       '#type' => 'link',
@@ -78,10 +79,11 @@ class CreateSurveyToken extends FormBase {
       //$rows = [];
       foreach($tokens as $token) {
         //$rows[] = $token->user_pw;
+        $data = $base_path . 'real-time-delphi/survey/question/1/' . $token->user_pw;
         $rows[] = [
           'token' => $token->user_pw,
-          'link' => 'sdsodksoksdo',
-          'qrcode' => 'hier kommt der QR CODE',
+          'link' => $base_path,
+          'qrcode' => Markup::create('<img src="' . (new QRCode)->render($data) . '" alt="QR Code" />'),
         ];
       }
 

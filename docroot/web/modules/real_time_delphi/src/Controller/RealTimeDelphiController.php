@@ -14,9 +14,12 @@ class RealTimeDelphiController extends ControllerBase {
    */
   public function build() {
 
+    $config = \Drupal::config('real_time_delphi.settings');
+    $welcome_message = $config->get('welcome');
+
     $build['content'] = [
-      '#type' => 'item',
-      '#markup' => $this->t('It works!'),
+      '#type' => 'markup',
+      '#markup' => $welcome_message,
     ];
 
     return $build;
