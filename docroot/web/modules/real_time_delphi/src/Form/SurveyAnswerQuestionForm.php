@@ -32,7 +32,7 @@ class SurveyAnswerQuestionForm extends FormBase {
     }
 
     // TODO: question id und user pass dynamisch machen
-    public function buildForm(array $form, FormStateInterface $form_state, $question_id = 1, $user_pass = '92700a6218a7c745cc1ba13720b5a6') {
+    public function buildForm(array $form, FormStateInterface $form_state, $question_id = NULL, $user_pass = NULL) {
         // Get the user answers
         $user_answers = $this->get_answers($question_id, $user_pass);
 
@@ -41,6 +41,17 @@ class SurveyAnswerQuestionForm extends FormBase {
         if (!empty($user_answers) && $questionType != 'group') {
             // TODO: redirect site to
             // drupal_goto("survey_question_evaluation/" . $question_id . "/" . $user_pass);
+        }
+
+        if ($question_id == "1") {
+            $config = \Drupal::config('real_time_delphi.settings');
+
+            $form['message'] = [
+            '#type' => 'markup',
+            '#markup' => $config->get('welcome'),
+            '#title' => $this->t('Start Message'),
+            // '#required' => TRUE,
+            ];
         }
 
         // Load all available questions from the database
@@ -236,7 +247,7 @@ class SurveyAnswerQuestionForm extends FormBase {
             );
             $form['submit'] = array(
                 '#type' => 'submit',
-                '#value' => 'Weiter',
+                '#value' => $this->t('Next'),
                 '#question_id' => $question_id,
                 '#user_pass' => $user_pass,
             );

@@ -82,14 +82,14 @@ class CreateSurveyToken extends FormBase {
         $data = $base_path . 'real-time-delphi/survey/question/1/' . $token->user_pw;
         $rows[] = [
           'token' => $token->user_pw,
-          'link' => $base_path,
+          'link' => Markup::create('<a href="' . $base_path . 'real-time-delphi/survey/question/1/' . $token->user_pw . '">Start Survey</a>'),
           'qrcode' => Markup::create('<img src="' . (new QRCode)->render($data) . '" alt="QR Code" />'),
         ];
       }
 
       $form['token_delete']['tokensdel_table'] = [
         '#theme' => 'table',
-        '#header' => [$this->t('Token'), 'Action', 'QR Code'],
+        '#header' => [$this->t('Token'), 'Link', 'QR Code'],
         '#rows' => $rows,
       ];
     }

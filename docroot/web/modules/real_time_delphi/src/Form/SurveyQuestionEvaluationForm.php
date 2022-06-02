@@ -72,8 +72,8 @@ class SurveyQuestionEvaluationForm extends FormBase {
         <h2>" . $headline . "</h2>";
 
         $stringSelfAssessment = $this->t('Here you can compare your assessments with the averaged values 
-        of the other participants and view their comments. You can then stick to your assessment 
-        or change it. If you wish, you can give reasons for your assessment in a comment of your own or 
+        of the other participants <br/>and view their comments. You can then stick to your assessment 
+        or change it. If you wish, you can give reasons <br/> for your assessment in a comment of your own or 
         provide any other comments that are worthy of consideration.');
 
         //$stringSelfAssessment = t('Hier können Sie Ihre Einschätzung bewerten');    
@@ -368,14 +368,31 @@ class SurveyQuestionEvaluationForm extends FormBase {
 
         }
 
+        
+        
         $form['#attached']['library'][] = 'real_time_delphi/real_time_delphi';
+        $form['submit'] = [
+            '#type' => 'submit',
+            '#value' => $this->t('Next'),
+            '#question_id' => $question_id,
+            '#user_pass' => $user_pass,
+            '#weight' => 1000,
+        ];
 
         return $form;
 
     }
 
     public function submitForm(array &$form, FormStateInterface $form_state) {
-        
+        $question_id = $form_state->getTriggeringElement()['#question_id'];
+        $user_passcode = $form_state->getTriggeringElement()['#user_pass'];
+        $nextQuestionId = $this->question_evaluation_get_next_question($question_id);
+
+        if ($nextQuestionId == -1) {
+            $form_state->setRedirect('real_time_delphi.survey_finish');
+        } else {
+            $form_state->setRedirect('real_time_delphi.survey_answer', ['question_id' => $nextQuestionId, 'user_pass' => $user_passcode]);
+        }
     }
 
     /*

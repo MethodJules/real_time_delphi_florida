@@ -69,7 +69,7 @@ real_time_delphi.question_overview:
     _title: 'Question Overview'
     _form: 'Drupal\real_time_delphi\Form\QuestionOverview'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer real_time_delphi configuration'
 
 real_time_delphi.token_generate:
   path: '/real-time-delphi/survey/token-generate'
@@ -77,4 +77,4 @@ real_time_delphi.token_generate:
     _title: 'Token Generator'
     _form: 'Drupal\real_time_delphi\Form\CreateSurveyToken'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer real_time_delphi configuration'

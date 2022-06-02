@@ -12,9 +12,10 @@ class Boxplot {
         //drupal_add_js(drupal_get_path('module', 'survey') . '/js/survey_create_boxplot.js', 'footer');
         //drupal_add_css(drupal_get_path('module', 'survey') . '/css/survey_create_boxplot.css');
 
-        $boxplotNoData = '<div class = "boxplot-nodata">' .
-        t('Zu diesem Thema wurden noch nicht genügend Einschätzungen abgegeben.') .
-        '</div>';
+        $boxplotNoData = [
+            '#type' => 'markup',
+            '#markup' => '<div class = "boxplot-nodata">' . t('Zu diesem Thema wurden noch nicht genügend Einschätzungen abgegeben.') . '</div>',
+        ];
 
         //$question_id = arg(1);
         //$user_pw = arg(2);
@@ -100,7 +101,7 @@ class Boxplot {
             }
 
 
-            $links = array(0 => "unteres Quartil", 1 => "Mittelwert", 2 => "Median", 3 => "oberes Quartil");
+            $links = array(0 => "Lower Quartile", 1 => "Average", 2 => "Median", 3 => "Upper Quartile");
 
             $boxplot_string = array(
                 'container' => array(
@@ -192,10 +193,10 @@ class Boxplot {
                         '#theme' => 'table',
                         '#header' => array('Kennzahl', 'Beschreibung'),
                         '#rows' => array(
-                            array('Unteres Quartil', 'Die kleinsten 25 % der Datenwerte sind kleiner als dieser oder gleich diesem Kennwert'),
-                            array('Median', 'Die kleinsten 50 % der Datenwerte sind kleiner als dieser oder gleich diesem Kennwert'),
-                            array('Oberes Quartil', 'Die kleinsten 75 % der Datenwerte sind kleiner als dieser oder gleich diesem Kennwert'),
-                            array('Maximum', 'Größter Datenwert des Datensatzes')
+                            array('Lower Quartile', 'The smallest 25% of the data values are less than or equal to this charateristic value'),
+                            array('Median', 'The smallest 50% of the data values are less than or equal to this charateristic value'),
+                            array('Upper Quartile', 'The smallest 75% of the data values are less than or equal to this charateristic value'),
+                            array('Maximum', 'Biggest Value of the dataset')
                         ), 
                     ),
                 ),
