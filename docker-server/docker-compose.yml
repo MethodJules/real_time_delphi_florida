@@ -1,0 +1,39 @@
+version: '3'
+services:
+  rtd_d9_db:
+    image: mariadb:10.5
+    container_name: "rtd_d9_mariadb"
+    #command: --max_allowed_packet=32505856 #Set max_allowed_packet to 256M
+    environment:
+      MYSQL_DATABASE: rtd_d9
+      MYSQL_ROOT_PASSWORD: rtd_d9
+    #ports:
+    #  - "3306:3306"
+    volumes:
+      - ../database:/var/lib/mysql
+    restart: always
+  rtd_d9_drupal:
+    depends_on:
+      - rtd_d9_db
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
+    build: .
+    container_name: "rtd_d9_drupal"
+    #ports:
+    #  - "8080:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rtd_d9_drupal.entrypoints=http"
+      - "traefik.http.routers.rtd_d9_drupal.rule=Host(`real-time-delphi.x-navi.de`)"
+      - "traefik.http.middlewares.rtd_d9_drupal-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.rtd_d9_drupal.middlewares=rtd_d9_drupal-https-redirect"
+      - "traefik.http.routers.rtd_d9_drupal-secure.entrypoints=https"
+      - "traefik.http.routers.rtd_d9_drupal-secure.rule=Host(`real-time-delphi.x-navi.de`)"
+      - "traefik.http.routers.rtd_d9_drupal-secure.tls=true"
+      - "traefik.http.routers.rtd_d9_drupal-secure.tls.certresolver=http"
+      - "traefik.http.routers.rtd_d9_drupal-secure.service=rtd_d9_drupal"
+      - "traefik.http.services.rtd_d9_drupal.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
+    volumes:
+      - ../docroot:/app
+    restart: always
