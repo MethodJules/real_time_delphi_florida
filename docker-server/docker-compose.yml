@@ -37,3 +37,10 @@ services:
     volumes:
       - ../docroot:/app
     restart: always
+    networks:
+      - proxy
+      - default
+networks:
+  proxy:
+    external:
+      name: proxy
