@@ -17,7 +17,7 @@ real_time_delphi.survey_token:
   weight: 101
 
 real_time_delphi.start_survey:
-  title: 'Sarting Survey...'
+  title: 'Starting Survey...'
   description: 'Starts the survey.'
   route_name: real_time_delphi.survey_start
   weight: 102
