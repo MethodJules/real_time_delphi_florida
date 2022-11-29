@@ -23,7 +23,6 @@
 
 /* Fixed survey headers */
 .question-header {
-  position: fixed;
   width: inherit;
   background: #fff;
   z-index: 200;
@@ -38,33 +37,32 @@
   z-index: 1;
 }
 .question-content-wrapper.one-row {
-  padding-top: calc(75px + 10px);
+  padding-top: 85px;
 }
 .question-content-wrapper.two-rows {
-  padding-top: calc(75px + 10px + 20px);
+  padding-top: 105px;
 }
 .question-content-wrapper.three-rows {
-  padding-top: calc(75px + 10px + 40px);
+  padding-top: 125px;
 }
 .question-content-wrapper.four-rows {
-  padding-top: calc(75px + 10px + 60px);
+  padding-top: 145px;
 }
 
 .evaluation-content-wrapper {
   z-index: 1;
 }
 .evaluation-content-wrapper.one-row {
-  margin-top: 50px;
-  padding-top: calc(95px + 10px + 30px);
+  padding-top: 135px;
 }
 .evaluation-content-wrapper.two-rows {
-  padding-top: calc(0px + 10px + 20px + 30px);
+  padding-top: 60px;
 }
 .evaluation-content-wrapper.three-rows {
-  padding-top: calc(95px + 10px + 40px + 30px);
+  padding-top: 175px;
 }
 .evaluation-content-wrapper.four-rows {
-  padding-top: calc(95px + 10px + 60px + 30px);
+  padding-top: 195px;
 }
 .evaluation-content-wrapper .form-type-textfield {
   width: 77px !important;
@@ -179,7 +177,7 @@ fieldset:nth-child(n) {
   width: auto;
   float: left;
   /* Reduziert auf 15%, damit 7 Spalten Skala in eine Reihe passt */
-  margin-left: calc(15.0% - 15.6px);
+  margin-left: calc(15% - 15.6px);
 }
 
 .evaluation-content-wrapper label.option {
@@ -187,8 +185,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim0 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim0.form-type-radio {
   position: relative;
@@ -206,8 +203,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim1 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim1.form-type-radio {
   position: relative;
@@ -225,8 +221,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim2 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim2.form-type-radio {
   position: relative;
@@ -244,8 +239,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim3 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim3.form-type-radio {
   position: relative;
@@ -263,8 +257,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim4 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim4.form-type-radio {
   position: relative;
@@ -282,8 +275,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim5 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim5.form-type-radio {
   position: relative;
@@ -301,8 +293,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim6 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim6.form-type-radio {
   position: relative;
@@ -320,8 +311,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim7 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim7.form-type-radio {
   position: relative;
@@ -339,8 +329,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim8 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim8.form-type-radio {
   position: relative;
@@ -358,8 +347,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim9 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim9.form-type-radio {
   position: relative;
@@ -377,8 +365,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim10 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim10.form-type-radio {
   position: relative;
@@ -396,8 +383,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim11 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim11.form-type-radio {
   position: relative;
@@ -415,8 +401,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim12 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim12.form-type-radio {
   position: relative;
@@ -434,8 +419,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim13 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim13.form-type-radio {
   position: relative;
@@ -453,8 +437,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim14 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim14.form-type-radio {
   position: relative;
@@ -472,8 +455,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim15 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim15.form-type-radio {
   position: relative;
@@ -491,8 +473,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim16 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim16.form-type-radio {
   position: relative;
@@ -510,8 +491,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim17 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim17.form-type-radio {
   position: relative;
@@ -529,8 +509,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim18 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim18.form-type-radio {
   position: relative;
@@ -548,8 +527,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim19 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim19.form-type-radio {
   position: relative;
@@ -567,8 +545,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim20 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim20.form-type-radio {
   position: relative;
@@ -586,8 +563,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim21 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim21.form-type-radio {
   position: relative;
@@ -605,8 +581,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim22 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim22.form-type-radio {
   position: relative;
@@ -624,8 +599,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim23 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim23.form-type-radio {
   position: relative;
@@ -643,8 +617,7 @@ fieldset:nth-child(n) {
 }
 
 .form-item-dim24 {
-  margin-top: 1rem;
-  /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
+  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
 }
 .form-item-dim24.form-type-radio {
   position: relative;
@@ -663,22 +636,22 @@ fieldset:nth-child(n) {
 
 /* Radio-Buttons als Achsenbeschriftung auf Boxplot skalieren */
 .radios-3 .form-type-radio {
-  margin-left: calc(68.2%);
+  margin-left: 68.2%;
 }
 .radios-3 .form-type-radio:nth-child(3) {
-  margin-left: calc(11.65%);
+  margin-left: 11.65%;
 }
 
 .radios-5 > .form-type-radio {
-  margin-left: calc(20.9%);
+  margin-left: 20.9%;
 }
 
 .radios-6 > .form-type-radio {
-  margin-left: calc(15.1%);
+  margin-left: 15.1%;
 }
 
 .radios-7 > .form-type-radio {
-  margin-left: calc(11.6%);
+  margin-left: 11.6%;
 }
 
 /* Es wird ein label Element benötigt, welches nach dem input auftritt, damit dieses als :checked verwendet werden kann, um die Buttons umzustylen
@@ -819,7 +792,7 @@ textarea {
 .container {
   width: 100%;
   max-width: 600px;
-  margin: calc(2rem + 1rem) 0 2% 0;
+  margin: 3rem 0 2% 0;
   padding: 0;
   float: left;
 }
@@ -1188,3 +1161,5 @@ input.form-radio {
 .evaluation.knowledgeMap .form-type-checkbox {
   margin-top: 0 !important;
 }
+
+/*# sourceMappingURL=real-time-delphi.css.map */
