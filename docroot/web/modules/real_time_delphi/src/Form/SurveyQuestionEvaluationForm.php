@@ -217,6 +217,7 @@ class SurveyQuestionEvaluationForm extends FormBase {
                         '#resizable' => FALSE,
                         '#type' => 'textarea',
                         '#default_value' => $answers[$i]->comment,
+                        '#attributes' => array('class' => array('comment_section'), 'id' => 'comment_section' ),
                     );
 
                     $form = $this->survey_addUserComments($form, $i, $question_id, $answers[$i]->answer_id, $user_id, $button_title_array[$i - $countTextfield]);
@@ -371,12 +372,19 @@ class SurveyQuestionEvaluationForm extends FormBase {
         
         
         $form['#attached']['library'][] = 'real_time_delphi/real_time_delphi';
-        $form['submit'] = [
+        $form['fieldset_action'] = [
+            '#type' => 'fieldset',
+            '#attributes' => [
+                'class' => 'fieldset_next_button',
+                'id' => 'fieldset_next_button'
+            ]
+        ];
+        $form['fieldset_action']['submit'] = [
             '#type' => 'submit',
             '#value' => $this->t('Next'),
             '#question_id' => $question_id,
             '#user_pass' => $user_pass,
-            '#weight' => 1000,
+            '#weight' => 10000,
         ];
 
         return $form;

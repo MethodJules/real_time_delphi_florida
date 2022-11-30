@@ -1162,4 +1162,14 @@ input.form-radio {
   margin-top: 0 !important;
 }
 
+/* Stuffy */
+#fieldset_next_button {
+  border: 0px;
+  background-color: transparent;
+}
+
+#comment_section {
+  margin-top: 1.2rem;
+}
+
 /*# sourceMappingURL=real-time-delphi.css.map */
