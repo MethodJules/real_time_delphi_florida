@@ -2,6 +2,7 @@
 
 namespace Drupal\real_time_delphi\Graphic;
 use Drupal\real_time_delphi\Traits\DataTrait;
+use Drupal\Core\Render\Markup;
 
 class Boxplot {
     use DataTrait;
@@ -108,75 +109,47 @@ class Boxplot {
                     '#prefix' => '<div id="eins">',
                     '#suffix' => '</div>',
                     'boxplot' => array(
-                        '#prefix' => '<div class="boxplot">',
+                        '#prefix' => '<div class="boxplotLegendWrapper"><div class="boxplot">',
                         '#suffix' => '</div>',
                         'boxlinie' => array(
-                            '#prefix' => '<div class="box linie">',
+                            '#prefix' => '<div  class="box linie">',
                             '#suffix' => '</div>',
                         ),
                         'boxwhisker' => array(
-                            '#prefix' => '<div class="box whisker">',
+                            '#prefix' => '<div  class="box whisker">',
                             '#suffix' => '</div>',
                         ),
                         'boxinterquant' => array(
-                            '#prefix' => '<div class="box interquart" style="left: ' . $first_quantil["procent"] . '%;">',
-                            '#suffix' => '</div>',
+                            '#markup' => Markup::create('<div  class="box interquart" style="left: ' . $first_quantil["procent"] . '%;"></div>')
                         ),
                         'boxthirdquant' => array(
-                            '#prefix' => '<div class="box thirdquant" style="left: calc(' . $third_quantil2 . '% + ' . $first_quantil["procent"] . '%); width: ' . $third_quantil2 . '%; margin-left: -' . $third_quantil2 . '%;">',
-                            '#suffix' => '</div>',
+                            '#markup' => Markup::create('<div class="box thirdquant" style="left: calc(' . $third_quantil2 . '% + ' . $first_quantil["procent"] . '%); width: ' . $third_quantil2 . '%; margin-left: -' . $third_quantil2 . '%;"></div>')
                         ),
                         'boxmedian' => array(
-                            '#prefix' => '<div class="box median" style="left: ' . $median["procent"] . '%;">',
-                            '#suffix' => '</div>',
+                            '#markup' => Markup::create('<div class="box median" style="left: ' . $median["procent"] . '%;"></div>'),
+                            '#allowed_tags' => ['style'],
                         ),
                         'boxmittel' => array(
-                            '#prefix' => '<div class="box mittel" style="left: ' . $avg["procent"] . '%;">',
-                            '#suffix' => '</div>',
+                            '#markup' => Markup::create('<div class="box mittel" style="left: ' . $avg["procent"] . '%;"></div>'),
+                            
                         ),
                         's_min' => array(
-                            '#prefix' => '<span class="schild s_min" style="left: 0%;">',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                //'#markup' => _formatNumber($min+1),
-                                '#markup' => 'min(' . $this->formatNumber($min + 1) . ')',
-                            ),
+                            '#markup'=> Markup::create('<span class="schild s_min" style="left: 0%;"> min(' . $this->formatNumber($min + 1) . ') </span>')
                         ),
                         's_average' => array(
-                            '#prefix' => '<span class="schild min s_average" style="margin-left: ' . $avg["procent"] . '%;">',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                '#markup' => $this->formatNumber($avg["absolut"] + 1),
-                            ),
+                            '#markup'=> Markup::create('<span class="schild min s_average" style="margin-left: ' . $avg["procent"] . '%;"> ' . $this->formatNumber($avg["absolut"] + 1) . ' </span>')
                         ),
                         's_median' => array(
-                            '#prefix' => '<span class="schild min s_median" style="margin-left: ' . $median["procent"] . '%;"> ',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                '#markup' => $this->formatNumber($median["absolut"] + 1),
-                            ),
+                            '#markup' => Markup::create('<span class="schild min s_median" style="margin-left: ' . $median["procent"] . '%;"> ' . $this->formatNumber($median["absolut"] + 1) . ' </span>')
                         ),
                         's_third_quantil' => array(
-                            '#prefix' => '<span class="schild min s_third_quantil" style="margin-left: ' . $third_quantil["procent"] . '%;"> ',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                '#markup' => $this->formatNumber($third_quantil["absolut"] + 1),
-                            ),
+                            '#markup' => Markup::create(' <span class="schild min s_third_quantil" style="margin-left: ' . $third_quantil["procent"] . '%;"> ' . $this->formatNumber($third_quantil["absolut"] + 1) . '</span>')
                         ),
                         's_first_quantil' => array(
-                            '#prefix' => '<span class="schild s_first_quantil" style="margin-left: ' . $first_quantil["procent"] . '%;"> ',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                '#markup' => $this->formatNumber($first_quantil["absolut"] + 1),
-                            ),
+                            '#markup' => Markup::create('<span class="schild s_first_quantil" style="margin-left: ' . $first_quantil["procent"] . '%;"> ' . $this->formatNumber($first_quantil["absolut"] + 1) . ' </span>')
                         ),
                         's_max' => array(
-                            '#prefix' => '<span class="schild min s_max" style="margin-left: 100%;"> ',
-                            '#suffix' => '</span>',
-                            'markup' => array(
-                                //'#markup' => _formatNumber($max+1),
-                                '#markup' => 'max(' . $this->formatNumber($max+1) . ')'
-                            ),
+                            '#markup' => Markup::create('<span class="schild min s_max" style="margin-left: 100%;"> ' . $this->formatNumber($max+1) .' </span>')
                         ),
                     ),
                     'legend' => array(
@@ -184,7 +157,7 @@ class Boxplot {
                         '#items' => $links,
                         '#type' => 'ul',
                         '#prefix' => '<div class="legend">',
-                        '#suffix' => '</div>',
+                        '#suffix' => '</div></div>',
                         '#attributes' => array('class' => 'my-list'),
                     ),
                     'tooltip' => array(

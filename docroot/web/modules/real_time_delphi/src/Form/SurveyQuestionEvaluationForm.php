@@ -15,7 +15,6 @@ use Drupal\real_time_delphi\Graphic\Boxplot;
 class SurveyQuestionEvaluationForm extends FormBase {
     use QuestionTrait;
     
-
     protected $database;
 
     public function __construct(Connection $database) {
@@ -232,7 +231,6 @@ class SurveyQuestionEvaluationForm extends FormBase {
                     'class' => array('evaluation', $questionType));
 
                     $form['fieldset' . $i]['#title'] = $possible_answers_array[$i]->description;
-
                     $form['fieldset' . $i]['my_markup' . $i] = array(
                         '#markup' => $boxplot_graphic,
                     );

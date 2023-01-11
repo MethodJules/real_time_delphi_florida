@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*==============================================================================
 *   Colors
 *============================================================================ */
@@ -29,6 +30,7 @@
   padding-top: 10px;
 }
 
+
 .page-title {
   padding-top: 10px;
 }
@@ -36,15 +38,19 @@
 .question-content-wrapper {
   z-index: 1;
 }
+
 .question-content-wrapper.one-row {
   padding-top: 85px;
 }
+
 .question-content-wrapper.two-rows {
   padding-top: 105px;
 }
+
 .question-content-wrapper.three-rows {
   padding-top: 125px;
 }
+
 .question-content-wrapper.four-rows {
   padding-top: 145px;
 }
@@ -52,26 +58,33 @@
 .evaluation-content-wrapper {
   z-index: 1;
 }
+
 .evaluation-content-wrapper.one-row {
-  padding-top: 135px;
+  padding-top: 15px;
 }
+
 .evaluation-content-wrapper.two-rows {
   padding-top: 60px;
 }
+
 .evaluation-content-wrapper.three-rows {
   padding-top: 175px;
 }
+
 .evaluation-content-wrapper.four-rows {
   padding-top: 195px;
 }
+
 .evaluation-content-wrapper .form-type-textfield {
   width: 77px !important;
   margin-top: 60px !important;
 }
+
 .evaluation-content-wrapper .form-type-checkbox {
   width: 200px;
   margin-top: 67px;
 }
+
 .evaluation-content-wrapper .form-type-checkbox label {
   vertical-align: text-bottom;
 }
@@ -80,6 +93,7 @@
   margin-top: -36px;
   margin-left: 100px;
 }
+
 .question-content-wrapper .form-type-checkbox label {
   vertical-align: text-bottom;
   font-weight: normal;
@@ -103,15 +117,15 @@
 
 .menu_wrapper,
 #main-menu li ul,
-#main-menu ul.menu li li > a {
+#main-menu ul.menu li li>a {
   background-color: #359ECF;
   color: #fff;
   border: 0;
 }
 
-#main-menu li:hover > a,
+#main-menu li:hover>a,
 #main-menu li a.active,
-#main-menu ul.menu li li:hover > a {
+#main-menu ul.menu li li:hover>a {
   background-color: #254563;
   border: 0;
 }
@@ -134,13 +148,17 @@ th {
 fieldset {
   margin: 0 0 2rem 0;
   padding: 1rem;
-  position: relative;
-  top: 0;
   border-radius: 0;
   border: 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
+  gap: 1rem;
 }
+
+.fieldset-wrapper #eins .boxplotLegendWrapper {
+  height: 6rem;
+}
+
 fieldset:nth-child(n) {
   background-color: #e2e7ed;
 }
@@ -173,28 +191,13 @@ fieldset:nth-child(n) {
   clear: left;
 }
 
-.form-item-dim24.form-type-radio, .form-item-dim23.form-type-radio, .form-item-dim22.form-type-radio, .form-item-dim21.form-type-radio, .form-item-dim20.form-type-radio, .form-item-dim19.form-type-radio, .form-item-dim18.form-type-radio, .form-item-dim17.form-type-radio, .form-item-dim16.form-type-radio, .form-item-dim15.form-type-radio, .form-item-dim14.form-type-radio, .form-item-dim13.form-type-radio, .form-item-dim12.form-type-radio, .form-item-dim11.form-type-radio, .form-item-dim10.form-type-radio, .form-item-dim9.form-type-radio, .form-item-dim8.form-type-radio, .form-item-dim7.form-type-radio, .form-item-dim6.form-type-radio, .form-item-dim5.form-type-radio, .form-item-dim4.form-type-radio, .form-item-dim3.form-type-radio, .form-item-dim2.form-type-radio, .form-item-dim1.form-type-radio, .form-item-dim0.form-type-radio {
-  width: auto;
-  float: left;
-  /* Reduziert auf 15%, damit 7 Spalten Skala in eine Reihe passt */
-  margin-left: calc(15% - 15.6px);
-}
-
 .evaluation-content-wrapper label.option {
   transform-origin: 24px 2px !important;
 }
 
-.form-item-dim0 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim0.form-type-radio {
-  position: relative;
-}
-.form-item-dim0.form-type-radio label.option {
+
+.form-type-radio label.option {
   display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
   width: 5rem;
   font-size: 1em;
   line-height: 1.1;
@@ -202,491 +205,26 @@ fieldset:nth-child(n) {
   transform-origin: 15px 6px;
 }
 
-.form-item-dim1 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim1.form-type-radio {
-  position: relative;
-}
-.form-item-dim1.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
 
-.form-item-dim2 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim2.form-type-radio {
-  position: relative;
-}
-.form-item-dim2.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
 
-.form-item-dim3 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim3.form-type-radio {
-  position: relative;
-}
-.form-item-dim3.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim4 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim4.form-type-radio {
-  position: relative;
-}
-.form-item-dim4.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim5 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim5.form-type-radio {
-  position: relative;
-}
-.form-item-dim5.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim6 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim6.form-type-radio {
-  position: relative;
-}
-.form-item-dim6.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim7 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim7.form-type-radio {
-  position: relative;
-}
-.form-item-dim7.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim8 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim8.form-type-radio {
-  position: relative;
-}
-.form-item-dim8.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim9 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim9.form-type-radio {
-  position: relative;
-}
-.form-item-dim9.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim10 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim10.form-type-radio {
-  position: relative;
-}
-.form-item-dim10.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim11 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim11.form-type-radio {
-  position: relative;
-}
-.form-item-dim11.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim12 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim12.form-type-radio {
-  position: relative;
-}
-.form-item-dim12.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim13 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim13.form-type-radio {
-  position: relative;
-}
-.form-item-dim13.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim14 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim14.form-type-radio {
-  position: relative;
-}
-.form-item-dim14.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim15 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim15.form-type-radio {
-  position: relative;
-}
-.form-item-dim15.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim16 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim16.form-type-radio {
-  position: relative;
-}
-.form-item-dim16.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim17 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim17.form-type-radio {
-  position: relative;
-}
-.form-item-dim17.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim18 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim18.form-type-radio {
-  position: relative;
-}
-.form-item-dim18.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim19 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim19.form-type-radio {
-  position: relative;
-}
-.form-item-dim19.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim20 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim20.form-type-radio {
-  position: relative;
-}
-.form-item-dim20.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim21 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim21.form-type-radio {
-  position: relative;
-}
-.form-item-dim21.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim22 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim22.form-type-radio {
-  position: relative;
-}
-.form-item-dim22.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim23 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim23.form-type-radio {
-  position: relative;
-}
-.form-item-dim23.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-.form-item-dim24 {
-  margin-top: 1rem; /* Angepasst, um ausschweifende Freiflächen zu reduzieren */
-}
-.form-item-dim24.form-type-radio {
-  position: relative;
-}
-.form-item-dim24.form-type-radio label.option {
-  display: block;
-  position: absolute;
-  float: none;
-  left: 0.9em;
-  width: 5rem;
-  font-size: 1em;
-  line-height: 1.1;
-  transform: rotate(29deg);
-  transform-origin: 15px 6px;
-}
-
-/* Radio-Buttons als Achsenbeschriftung auf Boxplot skalieren */
-.radios-3 .form-type-radio {
-  margin-left: 68.2%;
-}
-.radios-3 .form-type-radio:nth-child(3) {
-  margin-left: 11.65%;
-}
-
-.radios-5 > .form-type-radio {
-  margin-left: 20.9%;
-}
-
-.radios-6 > .form-type-radio {
-  margin-left: 15.1%;
-}
-
-.radios-7 > .form-type-radio {
-  margin-left: 11.6%;
-}
-
-/* Es wird ein label Element benötigt, welches nach dem input auftritt, damit dieses als :checked verwendet werden kann, um die Buttons umzustylen
-
-.form-type-radio:before {
-  content:'';
-  display: block;
-  visibility: visible;
-  float: left;
-  position: absolute;
-  z-index: 998;
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  border: 1px solid $color-bright;
-  background-color: #transparent;
-  margin: -1px 0 0 -1px;
-}
-
-input.form-radio:checked .form-radio:after {
-  content:'';
-  display: block;
-  float: left;
-  position: absolute;
-  z-index: 999;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background-color: $color-bright;
-  margin: -1px 0 0 -1px;
-}
-
-*/
 .form-radios {
   width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form-radios .form-type-radio {
+  height: 5rem;
+
+  padding: 0;
+  margin: 0;
+}
+
+.form-type-radio label {
+  margin-left: 1rem !important;
 }
 
 .form-radios .form-type-radio:first-of-type {
@@ -698,21 +236,17 @@ input.form-radio:checked .form-radio:after {
 }
 
 /* spezifischer stylen, damit keine riesigen Lücken entstehen! */
-.form-type-radios {
+/* .form-type-radios {
   width: 100%;
   max-width: 600px;
   padding: 0;
   margin-bottom: 4rem;
-}
+} */
 
 #survey-form .form-type-textfield,
 #survey-form .form-type-textarea {
   max-width: 600px;
   margin-bottom: 0;
-}
-
-.form-wrapper .form-type-radios {
-  margin-bottom: 0.4rem;
 }
 
 .form-item {
@@ -722,11 +256,11 @@ input.form-radio:checked .form-radio:after {
 /* Textfelder */
 .form-textarea-wrapper {
   width: 100%;
-  max-width: 600px;
   margin: 0 0px 0px;
   padding: 0;
   float: left;
 }
+
 .form-textarea-wrapper .form-textarea {
   width: 100%;
 }
@@ -744,12 +278,16 @@ textarea {
 #survey-configure-form * {
   max-width: 100% !important;
 }
+
 #survey-configure-form .fieldset-wrapper {
   margin-top: 0px;
 }
-#survey-configure-form .text-format-wrapper, #survey-configure-form .form-textarea-wrapper {
+
+#survey-configure-form .text-format-wrapper,
+#survey-configure-form .form-textarea-wrapper {
   margin-bottom: 2em;
 }
+
 #survey-configure-form .filter-wrapper {
   display: none;
 }
@@ -877,6 +415,7 @@ textarea {
 
 .schild.s_average {
   margin-top: 4rem;
+
 }
 
 .schild.s_median {
@@ -903,24 +442,29 @@ textarea {
   line-height: 1;
   font-weight: bold;
 }
+
 .legend .item-list ul li {
   background: none, #fff;
   list-style-type: none;
   padding: 5px;
   margin: 5px;
 }
+
 .legend .item-list ul li:nth-child(1) {
   background: none, #29c95f;
   color: #fff;
 }
+
 .legend .item-list ul li:nth-child(2) {
   background: none, #ff5bbd;
   color: #fff;
 }
+
 .legend .item-list ul li:nth-child(3) {
   background: none, #ff7d5f;
   color: #fff;
 }
+
 .legend .item-list ul li:nth-child(4) {
   background: none, #27abf6;
   color: #fff;
@@ -932,18 +476,25 @@ textarea {
 }
 
 /* Breite des Textfeld für Titel der Frage an Seitenbreite anpassen */
-#question-field, .item-title {
+#question-field,
+.item-title {
   width: 100%;
 }
 
 /* Titel der Antwortmöglichkeiten beim Ausfüllen einer Umfrage hervorheben */
-.answers > div > label {
+.answers>div>label {
   font-weight: bold;
 }
 
 /* Fix damit Boxplots nichts mehr über Fieldset-Box hinausragen */
 #survey-question-evaluation-form .fieldset-wrapper {
   margin-top: 55px;
+
+}
+
+#survey-question-evaluation-form .fieldset-wrapper .fieldset-wrapper {
+  margin-top: 0 !important;
+
 }
 
 #survey-question-evaluation-form .title-long .fieldset-wrapper {
@@ -956,7 +507,7 @@ textarea {
 }
 
 /* Abstand Antwortmöglichkeit Textfeld beim Beantworten der Umfrage */
-.answers > .form-type-textfield {
+.answers>.form-type-textfield {
   margin-top: 1rem;
 }
 
@@ -983,29 +534,31 @@ input.form-radio {
   text-indent: 0;
   padding-left: 10px;
 }
+
 #survey-question-evaluation-form fieldset legend .fieldset-legend {
   font-weight: bold;
 }
 
 /* Rahmen als zur Strukturierung auf Umfrageseite */
-.answers > .form-type-textfield,
-.answers > .form-type-radios,
-#survey-form .answers > .form-type-textarea {
+.answers>.form-type-textfield,
+.answers>.form-type-radios,
+#survey-form .answers>.form-type-textarea {
   border-style: solid;
   border-width: 2px;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
 }
 
-#survey-form .answers.text > .form-type-textarea {
+#survey-form .answers.text>.form-type-textarea {
   padding-bottom: 2rem;
 }
+
 #survey-form .answers.text .form-type-checkbox {
   margin-top: -2rem;
   margin-left: 1.2rem;
 }
 
-.answers > .form-type-radios {
+.answers>.form-type-radios {
   padding-bottom: 4rem;
   margin-bottom: 0;
 }
@@ -1015,13 +568,16 @@ input.form-radio {
   margin-top: -1rem;
   margin-bottom: 0;
 }
+
 .toggleComments * {
   float: right;
 }
+
 .toggleComments input {
   display: none;
 }
-.toggleComments input[type=checkbox] + label {
+
+.toggleComments input[type=checkbox]+label {
   color: #777;
   background-color: #F2F2F2;
   cursor: pointer;
@@ -1030,7 +586,8 @@ input.form-radio {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.toggleComments input[type=checkbox]:checked + label {
+
+.toggleComments input[type=checkbox]:checked+label {
   background-color: #DBDBDB;
 }
 
@@ -1109,10 +666,12 @@ input.form-radio {
   float: left;
   clear: both;
 }
+
 .buttons-submit #edit-back,
 #survey-question-evaluation-form #edit-back {
   float: left;
 }
+
 .buttons-submit #edit-submit,
 #survey-question-evaluation-form #edit-submit {
   float: none;
@@ -1121,13 +680,16 @@ input.form-radio {
 .answers.knowledgeMap .form-textarea-wrapper {
   display: none;
 }
+
 .answers.knowledgeMap .form-type-textarea {
   height: 6rem;
 }
+
 .answers.knowledgeMap .form-type-checkbox {
   margin-top: -2rem;
   margin-left: 1.2rem;
 }
+
 .answers.knowledgeMap .form-type-item {
   margin-top: -3.5rem;
   margin-left: 1.2rem;
@@ -1158,6 +720,7 @@ input.form-radio {
 .evaluation.knowledgeMap .fieldset-wrapper {
   margin-top: 0 !important;
 }
+
 .evaluation.knowledgeMap .form-type-checkbox {
   margin-top: 0 !important;
 }
